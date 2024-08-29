@@ -60,7 +60,7 @@ Contribuciones
 Las contribuciones son bienvenidas. Si encuentras un bug o tienes una idea para mejorar SafePass, siéntete libre de abrir un issue o enviar un pull request.
 
 Licencia
-Este proyecto está licenciado bajo la Licencia MIT.
+Este proyecto está licenciado bajo la Licencia GNU General Public License (GPL).
 
 Contacto
 Para más información o preguntas sobre el proyecto, puedes contactarme a través de carlosermeti@hotmail.com
