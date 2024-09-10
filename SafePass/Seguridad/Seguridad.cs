@@ -13,9 +13,16 @@ namespace SafePass.Seguridad
         public static bool Login(string DatabaseFile)
         {
             Console.Write("Username: ");
-            string username = Console.ReadLine();
+            string username = Console.ReadLine().Trim();
             Console.Write("Password: ");
             string password = ReadPassword();
+
+            // Validación básica de entrada
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                Console.WriteLine("Usuario o  contraseña no pueden quedar vacios.");
+                return false;
+            }
 
             using (var connection = new SqliteConnection($"Data Source={DatabaseFile}"))
             {
@@ -23,12 +30,15 @@ namespace SafePass.Seguridad
                 string query = "SELECT PasswordHash FROM Users WHERE Username = @username;";
                 using (var command = new SqliteCommand(query, connection))
                 {
+                    // Uso seguro de parámetros SQL
                     command.Parameters.AddWithValue("@username", username);
+
                     using (var reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {
                             string storedHash = reader.GetString(0);
+                            // Verifica la contraseña utilizando un método seguro
                             return VerifyPassword(password, storedHash);
                         }
                     }
