@@ -29,7 +29,7 @@ class Program
 
             switch (input.ToLower())
             {
-                case "add":
+                case "add": 
                     ContextoDB.AddPassword(DatabaseFile);
                     break;
                 case "list":
