@@ -125,7 +125,7 @@ namespace SafePass.Negocio
 
         public static void DeletePassword(string DatabaseFile)
         {
-            Console.Write("Service to delete: ");
+            Console.Write("Servicio a borrar: ");
             string service = Console.ReadLine();
 
             using (var connection = new SqliteConnection($"Data Source={DatabaseFile}"))
